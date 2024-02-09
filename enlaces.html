@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c35; /* Modo oscuro por defecto */
+            color: #fff;
+            transition: background-color 0.5s, color 0.5s;
+            margin: 0;
+        }
+
+        header {
+            background-color: #1a1e24;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.5s, padding 0.5s; /* Animación de color de fondo y relleno */
+        }
+
+      .texto-rojo-negrita {
+        color: red;
+        font-weight: bold;
+      }
+
+        header:hover {
+            background-color: #14181f;
+            padding: 30px; /* Ajuste de relleno al pasar el mouse sobre el encabezado */
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2d323c;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            transition: background-color 0.5s; /* Animación de color de fondo del contenedor de botones */
+        }
+
+        .button {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 20px 60px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 0 10px;
+            display: inline-block;
+            overflow: hidden;
+            text-decoration: none; /* Elimina el subrayado de los botones */
+        }
+
+        .button:hover {
+            background-color: #3666b0;
+            transform: scale(1.1);
+        }
+
+        /* Toggle de modo oscuro/claro */
+        .toggle-mode {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            transition: transform 0.3s; /* Animación de escala del botón de modo oscuro/claro */
+        }
+
+        .toggle-mode:hover {
+            transform: scale(1.1);
+        }
+
+        .toggle-mode img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Modo claro */
+        body.light-mode {
+            background-color: #fff;
+            color: #333;
+        }
+
+        body.light-mode header {
+            background-color: #f0f0f0;
+        }
+
+        body.light-mode .button-container {
+            background-color: #e0e0e0;
+        }
+
+        .game-links {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .game-link {
+            text-align: center;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .game-link:hover {
+            transform: scale(1.1);
+        }
+
+        .game-link a {
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            color: #fff;
+        }
+
+        .game-link img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s; /* Animación de escala de las imágenes */
+        }
+
+        .game-link img:hover {
+            transform: scale(1.1);
+        }
+
+        .version-info {
+            color: #fff;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Ventana emergente */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .popup-content {
+            background-color: #2d323c;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transform: scale(0.8);
+            animation: popup-fade 0.5s, scale-up 0.5s;
+        }
+
+        .popup-content img {
+            width: 80%; /* Modificado para hacer las imágenes más pequeñas */
+            height: auto;
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.3s; /* Animación de escala de las imágenes */
+        }
+
+        .popup-content img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animaciones del popup */
+        @keyframes popup-fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scale-up {
+            from {
+                transform: scale(0.8);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Transición al cambiar de página */
+        body.transition-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="toggle-mode" onclick="toggleMode()">
+        <img id="dark-mode-icon" src="/archivos/moon.png" alt="Modo Oscuro">
+        <img id="light-mode-icon" src="/archivos/sun.png" alt="Modo Claro" style="display: none;">
+    </div>
+
+    <header>
+        <h1>Enlaces</h1>
+    </header>
+
+    <nav>
+        <div class="button-container">
+            <a href="index.html" class="button">Inicio</a>
+            <a href="enlaces.html" class="button">Enlaces</a>
+            <a href="status.html" class="button">Status</a>
+            <a href="faq.html" class="button">FAQ</a>
+        </div>
+    </nav>
+
+    <div class="game-links">
+        <div class="game-link">
+            <a href="link_a_shooter_2D">
+                <img src="/archivos/shooter.png" alt="Shooter 2D">
+                <p class="version-info">Shooter 2D</p>
+            </a>
+        </div>
+        <div class="game-link">
+            <a href="link_a_futbol_2D">
+                <img src="/archivos/betis.png" alt="Fútbol 2D">
+                <p class="version-info">Fútbol 2D</p>
+            </a>
+        </div>
+        <div class="game-link">
+            <a onclick="openPopup(event)">
+                <img src="/archivos/minecraft.jpg" alt="Minecraft">
+                <p class="version-info">Minecraft</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Ventana emergente para seleccionar versión de Minecraft -->
+    <div id="minecraftPopup" class="popup">
+        <div class="popup-content">
+            <img src="/archivos/mc.jpg" alt="Minecraft Offline 1.5.2" onclick="window.location.href='https://f6f9f99b-f92b-4315-9871-4530387deb83-00-1vaurxcwdoqo8.kirk.replit.dev/'">
+          <p class="version-info">Versión: [1.5.2 OFFLINE]</p>
+
+            <img src="/archivos/mc.jpg" alt="Minecraft Online 1.5.2" onclick="window.location.href='https://marblock33.github.io/'">
+          <p class="version-info"><span class="texto-rojo-negrita">¡MÁS RAPIDO! </span>Versión: [1.8.8 ONLINE]</p>
+
+            <img src="/archivos/mc.jpg" alt="Minecraft Offline 1.8.8" onclick="window.location.href='https://ba30bf04-1108-452e-ab0b-851672241bbe-00-1l6no2ke2tu58.spock.replit.dev/'">
+            <p class="version-info"><span class="texto-rojo-negrita">¡Nuevo!</span> Versión: [1.8.8 OFFLINE]</p>
+        </div>
+    </div>
+
+    <script>
+        // Cambiar entre modo claro y oscuro
+        const body = document.body;
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        const lightModeIcon = document.getElementById('light-mode-icon');
+
+        function toggleMode() {
+            body.classList.toggle('light-mode');
+            darkModeIcon.style.display = body.classList.contains('light-mode') ? 'inline' : 'none';
+            lightModeIcon.style.display = body.classList.contains('light-mode') ? 'none' : 'inline';
+        }
+
+        // Funciones para la ventana emergente de Minecraft
+        function openPopup(event) {
+            event.preventDefault();
+            document.getElementById('minecraftPopup').style.display = 'flex';
+        }
+    </script>
+
+</body>
+
+</html>
